@@ -77,6 +77,55 @@ public class FrontendDeveloperTests {
         }
 		
 	}
+// test remove train
+	public static boolean test4() {
+		TextUITester tester = new TextUITester("R\ntrain1\nQ\n");
+		
+		try (Scanner scan = new Scanner(System.in)) {
+
+            TrainManagerBDInterface backend = new TrainManagerBD();
+            TrainManagerFD frontend = new TrainManagerFD(scan, backend);
+            frontend.runCommandLoop();
+            
+            String output = tester.checkOutput();
+            System.out.println(output);
+            if(output.contains("Train removed from schedule.")) {
+            	System.out.println("Test PASSED.");
+            } else {
+            	System.out.println("Test FAILED.");
+            }
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }		
+	}
+// test add	
+	public static boolean test5() {
+		TextUITester tester = new TextUITester("A\nMadison\nChicago\n4:50\n5:30\nQ\n");
+		
+		try (Scanner scan = new Scanner(System.in)) {
+
+            TrainManagerBDInterface backend = new TrainManagerBD();
+            TrainManagerFD frontend = new TrainManagerFD(scan, backend);
+            frontend.runCommandLoop();
+            
+            String output = tester.checkOutput();
+            System.out.println(output);
+            if(output.contains("Train added to schedule.")) {
+            	System.out.println("Test PASSED.");
+            } else {
+            	System.out.println("Test FAILED.");
+            }
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+		
+	}
 	
 	
 
@@ -85,8 +134,8 @@ public class FrontendDeveloperTests {
 		System.out.println("ROLE (FD) Test 1:" + test1());
 		System.out.println("ROLE (FD) Test 2:" + test2());
 		System.out.println("ROLE (FD) Test 3:" + test3());
-//		System.out.println("ROLE (FD) Test 4:" + test4());
-//		System.out.println("ROLE (FD) Test 5:" + test5());
+		System.out.println("ROLE (FD) Test 4:" + test4());
+		System.out.println("ROLE (FD) Test 5:" + test5());
 		
 
 	}

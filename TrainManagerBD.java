@@ -83,11 +83,22 @@ public class TrainManagerBD implements TrainManagerBDInterface {
 			
 		}
 
-		@Override
-		public Train removeTrain(Train train) {
+		public Train removeTrain(Train id) {
 			// TODO Auto-generated method stub
-			return null;
+		
+			Train tr =  new Train("chicago", "milwaukee", "5:50pm", "6:50pm");
+
+			return tr;
 		}
+
+//		@Override
+//		public Train removeTrain(Train train) {
+//			// TODO Auto-generated method stub
+//	    	String trainId = id;
+//	    	Train tr = null;
+//
+//	        return tr;
+//		}
 
 //		@Override
 //		public List<Train> searchTrains(List<String> searchWords) {

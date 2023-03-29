@@ -33,8 +33,7 @@ public class TrainManagerFD implements TrainManagerFDInterface {
 	                case 'A':
 	                    addTrainPrompt();
 	                    break;
-	                case 'R':
-	                	
+	                case 'R':	                	
 	                    removeTrainPrompt();
 	                    break;
 	                case 'T':
@@ -47,23 +46,21 @@ public class TrainManagerFD implements TrainManagerFDInterface {
 	            }
 	        }
 	    }
-	    private void removeTrainPrompt() {
-			// TODO Auto-generated method stub
-//		    System.out.print("Enter train ID to remove: ");
-//	        String input = userInput.nextLine().trim().toLowerCase();
-//		    input = chooseSearchWordsPrompt();
-//
-//		    Train removedTrain = backend.removeTrain(id);
-//		    if (removedTrain != null) {
-//		        System.out.println("Train removed from schedule.");
-//		    } else {
-//		        System.out.println("Train with ID " + id + " not found in schedule.");
-//		    }
 
-			
-		}
 
 		private void addTrainPrompt() {
+	        System.out.print("Enter train cargo: ");
+	        String cargo = userInput.nextLine().trim();
+	        System.out.print("Enter train destination: ");
+	        String destination = userInput.nextLine().trim();
+	        System.out.print("Enter train departure time: ");
+	        String departureTime = userInput.nextLine().trim();
+	        System.out.print("Enter train arrival time: ");
+	        String arrivalTime = userInput.nextLine().trim();
+
+	        Train train = new Train(cargo, destination, departureTime, arrivalTime);
+	        backend.addTrain(train);
+	        System.out.println("Train added to schedule.");
 
 		}
 
@@ -81,18 +78,22 @@ public class TrainManagerFD implements TrainManagerFDInterface {
 	                    break;
 	                    //search for the train by its destination	                
 	                case 'd':
+	                	words = chooseSearchWordsPrompt();
 	                    searchDestination(words);
 	                    break;
 	                    //search for the train by its cargo.
 	                case 'c':
+	                	words = chooseSearchWordsPrompt();
 	                    searchCargo(words);
 	                    break;
 	                    //search for the train by its arrival time.
 	                case 'a':
+	                	words = chooseSearchWordsPrompt();
 	                    searchArrivaltime(words);
 	                    break;
 	                    //search for the train by its departure time.
 	                case 'p':
+	                	words = chooseSearchWordsPrompt();
 	                    searchDeparturetime(words);
 	                    break;
 	                default:
@@ -149,6 +150,19 @@ public class TrainManagerFD implements TrainManagerFDInterface {
 	        }
 	        return searchWords;
 	    }
+//removeTrain	    
+	    private void removeTrainPrompt() {
+	    	
+		    System.out.print("Enter train ID to remove: ");
+	        String id = userInput.nextLine().trim().toLowerCase();
+	        Train train = new Train(id, id, id, id);
+	        Train removedTrain = backend.removeTrain(train);
+	        if (removedTrain != null) {
+	            System.out.println("Train removed from schedule.");
+	        } else {
+	            System.out.println("Train with ID " + id + " not found in schedule.");
+	        }
+		}
 
 //nextTrainAfterTime
 	    public void searchLatestTrain(List<String> words) {
