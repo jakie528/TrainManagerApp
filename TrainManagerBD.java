@@ -17,16 +17,6 @@ public class TrainManagerBD implements TrainManagerBDInterface {
 			// TODO Auto-generated constructor stub
 		}
 
-//		@Override
-//	    public void addTrain() {
-//	        // Placeholder implementation to do nothing
-//	    }
-//
-//	    @Override
-//	    public Train removeTrain() {
-//	        // Placeholder implementation to return null
-//	        return null;
-//	    }
 
 	    @Override
 	    public Train nextTrainAfterTime(String time) {
@@ -91,18 +81,5 @@ public class TrainManagerBD implements TrainManagerBDInterface {
 			return tr;
 		}
 
-//		@Override
-//		public Train removeTrain(Train train) {
-//			// TODO Auto-generated method stub
-//	    	String trainId = id;
-//	    	Train tr = null;
-//
-//	        return tr;
-//		}
 
-//		@Override
-//		public List<Train> searchTrains(List<String> searchWords) {
-//			// TODO Auto-generated method stub
-//			return null;
-//		}
 }
