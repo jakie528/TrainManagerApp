@@ -1,9 +1,3 @@
-// --== CS400 Project two File Header ==--
-// Name: Ziqi Liao
-// CSL Username: zliao
-// Email: zliao47@wisc.edu
-// Lecture #: Section 3: MoWeFr 1:20PM - 2:10PM, Florian Heimerl
-// Notes to Grader: FrontendDeveloper tests
 
 import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.assertTrue;
